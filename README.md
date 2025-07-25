@@ -9,6 +9,25 @@ A simple calculator application with a graphical user interface built using Pyth
 - Error handling for invalid inputs and division by zero
 - Docker containerization for easy deployment
 
+1. ubuntu 环境下，安装docker和docker-compose
+sudo apt update
+sudo apt install -y docker.io docker-compose
+sudo usermod -aG docker $USER
+newgrp docker
+---------------------------------------------------
+2.运行
+docker-compose up -d --build
+http://43.154.22.123:8080/vnc.html
+
+3. github常用命令
+git init
+git add .
+git commit -m "Initial commit"
+git remote set-url origin https://github.com/james-ap-sunny/calculator.git
+git push -u origin main
+
+
+
 ## Docker Deployment
 
 ### Prerequisites

@@ -53,3 +53,4 @@ Run the tests:
 
 ```
 pytest tests/
+```

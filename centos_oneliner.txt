@@ -1,6 +1,11 @@
-# Copy and paste this one-line command into your CentOS terminal to deploy the calculator:
+# IMPORTANT: For Tencent Cloud CVM or any remote server, you MUST connect with X11 forwarding enabled:
+# From your local machine: ssh -X username@server-address
 
+# Option 1: Standard installation (requires X11 forwarding for GUI):
 curl -s https://raw.githubusercontent.com/james-ap-sunny/python-calculator/master/fix_centos.sh -o fix_centos.sh && chmod +x fix_centos.sh && ./fix_centos.sh
+
+# Option 2: Headless installation (works without X11 forwarding, no GUI but runs tests):
+curl -s https://raw.githubusercontent.com/james-ap-sunny/python-calculator/master/headless_fix.sh -o headless_fix.sh && chmod +x headless_fix.sh && ./headless_fix.sh
 
 # How to verify the calculator is running:
 # 1. The script automatically verifies if the calculator process is running
@@ -9,5 +14,9 @@ curl -s https://raw.githubusercontent.com/james-ap-sunny/python-calculator/maste
 # 4. The process ID of the running calculator will be displayed
 # 5. If there are issues, troubleshooting suggestions will be shown
 
-# Note: If you're running this on a remote server, make sure to use SSH with X11 forwarding:
-# ssh -X username@server-address
+# Common errors:
+# - "no display name and no $DISPLAY environment variable": You need to connect with X11 forwarding (ssh -X)
+# - If using Tencent Cloud CVM, make sure your local machine has an X server installed:
+#   - Windows: Install and run XMing or VcXsrv
+#   - Mac: Install and run XQuartz
+#   - Linux: X11 is usually pre-installed

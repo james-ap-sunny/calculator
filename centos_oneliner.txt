@@ -1,3 +1,13 @@
 # Copy and paste this one-line command into your CentOS terminal to deploy the calculator:
 
 curl -s https://raw.githubusercontent.com/james-ap-sunny/python-calculator/master/fix_centos.sh -o fix_centos.sh && chmod +x fix_centos.sh && ./fix_centos.sh
+
+# How to verify the calculator is running:
+# 1. The script automatically verifies if the calculator process is running
+# 2. You will see a message "✅ Calculator is running successfully!" if it's working
+# 3. You should see the calculator GUI window appear on your screen
+# 4. The process ID of the running calculator will be displayed
+# 5. If there are issues, troubleshooting suggestions will be shown
+
+# Note: If you're running this on a remote server, make sure to use SSH with X11 forwarding:
+# ssh -X username@server-address

@@ -1,0 +1,3 @@
+# Copy and paste this one-line command into your CentOS terminal to deploy the calculator:
+
+curl -s https://raw.githubusercontent.com/james-ap-sunny/python-calculator/master/fix_centos.sh -o fix_centos.sh && chmod +x fix_centos.sh && ./fix_centos.sh

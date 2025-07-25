@@ -1,1 +1,3 @@
-# No external dependencies required for basic calculator functionality
+# Core dependencies
+tk>=0.1.0
+# No other external dependencies required for basic calculator functionality

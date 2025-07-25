@@ -7,3 +7,7 @@ services:
       - "8080:8080"  # noVNC web interface
       - "5900:5900"  # VNC port
     restart: unless-stopped
+    environment:
+      - DISPLAY=:1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Share X11 socket for better compatibility

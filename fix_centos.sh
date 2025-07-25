@@ -37,14 +37,51 @@ source venv/bin/activate
 echo "Installing dependencies..."
 pip install -r requirements.txt
 
-# Run the calculator
+# Run the calculator with verification
 echo "Starting the calculator..."
-python3 calculator.py
+echo "Verifying calculator launch..."
 
+# Create a verification script
+cat > verify_calculator.sh << 'VERIFYEOF'
+#!/bin/bash
+
+# Check if Python is running the calculator
+if pgrep -f "python3 calculator.py" > /dev/null; then
+    echo "✅ Calculator is running successfully!"
+    echo "   Process ID: $(pgrep -f 'python3 calculator.py')"
+    echo "   If you can see the calculator GUI, the deployment is complete."
+    echo "   Press Ctrl+C in the terminal to exit the calculator when done."
+else
+    echo "❌ Calculator failed to start. Please check the following:"
+    echo "   1. Is X11 forwarding enabled? (ssh -X)"
+    echo "   2. Is tkinter installed correctly?"
+    echo "   3. Check for any error messages above"
+fi
+VERIFYEOF
+
+chmod +x verify_calculator.sh
+
+# Start the calculator in background and verify
+python3 calculator.py &
+CALC_PID=$!
+
+# Wait a moment for the calculator to start
+sleep 3
+
+# Run verification
+./verify_calculator.sh
+
+# Inform user how to exit
+echo ""
 echo "===== Deployment complete! ====="
 echo "If you're connecting remotely, make sure to use SSH with X11 forwarding:"
 echo "ssh -X user@server"
 echo "Then run this script again."
+echo ""
+echo "To exit the calculator, press Ctrl+C in this terminal."
+
+# Wait for the calculator process to finish
+wait $CALC_PID
 EOF
 
 # Make the script executable

@@ -12,15 +12,10 @@ RUN apt-get update && apt-get install -y \
 # Set up working directory
 WORKDIR /app
 
-# Copy application files
+# Copy only necessary application files
 COPY calculator.py .
 COPY calculator_engine.py .
 COPY calculator_gui.py .
-COPY requirements.txt .
-COPY tests/ ./tests/
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Set up noVNC
 RUN mkdir -p /usr/share/novnc

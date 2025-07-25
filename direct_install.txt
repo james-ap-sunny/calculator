@@ -1,4 +1,0 @@
-# One-line command to install and run the calculator on CentOS
-# Copy and paste this entire command into your CentOS terminal
-
-sudo yum update -y && sudo yum install -y git python3 python3-devel python3-pip python3-tkinter xorg-x11-xauth && git clone https://github.com/james-ap-sunny/python-calculator.git && cd python-calculator && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python3 calculator.py

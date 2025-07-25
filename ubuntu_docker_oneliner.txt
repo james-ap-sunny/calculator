@@ -1,0 +1,7 @@
+# One-line command to deploy Python Calculator in Docker on Ubuntu:
+
+curl -s https://raw.githubusercontent.com/james-ap-sunny/python-calculator/master/ubuntu_docker_deploy.sh -o ubuntu_docker_deploy.sh && chmod +x ubuntu_docker_deploy.sh && ./ubuntu_docker_deploy.sh
+
+# After deployment, access the calculator via web browser at:
+# http://localhost:8080/vnc.html
+# Click the "Connect" button to access the calculator GUI.
